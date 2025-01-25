@@ -1,11 +1,13 @@
 import express from 'express' ;
 import dotenv from "dotenv" ;
 import cookieParser from 'cookie-parser';
-const app = express() ;
+//const app = express() ;
 import authRoutes from "./routes/authroutes.js" ;
 import messageRoutes from "./routes/message.routes.js" ;
 import userRoutes from "./routes/user.routes.js" ;
 import connectToMongoDB from './db/connectToMongoDB.js';
+
+import { app, server } from './socket/socket.js';
 
 
 
@@ -25,7 +27,7 @@ app.get("/",(req,res) =>{
 })
 
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     connectToMongoDB() ;
     console.log(`Server Running on port ${PORT}`) ;
 }) 
