@@ -18,7 +18,7 @@ export const SocketContextProvider = ({ children }) => {
 
     useEffect(() => {
         if (authUser) {
-            console.log("Auth user:", authUser);
+           // console.log("Auth user:", authUser);
             
             const socketUrl = process.env.NODE_ENV === "production" ? "https://your-production-url" : "http://localhost:5000";
             const socket = io(socketUrl, {
@@ -27,7 +27,7 @@ export const SocketContextProvider = ({ children }) => {
             setSocket(socket);
 
             socket.on("getOnlineUsers", (users) => {
-                console.log("Online users received:", users);
+              //  console.log("Online users received:", users);
                 setOnlineUsers(users);
             });
 
